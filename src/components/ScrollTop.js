@@ -11,27 +11,18 @@ function ScrollTop(props) {
     threshold: 200,
   });
 
-  const handleClick = (event) => {
-    const anchor = (event.target.ownerDocument || document).querySelector(
-      '#home',
-    );
-
-    if (anchor) {
-      anchor.scrollIntoView();
-    }
-    // works too
-    // window.scrollTo({ top: 0 })
+  const handleClick = () => {
+    window.scrollTo({ top: 0 })
   };
 
   return (
     <Zoom in={trigger}>
       <Box
         // alternative and probably more flexible solution
-        // onClick={handleClick}
+        onClick={handleClick}
         role="presentation"
         sx={{ position: 'fixed', bottom: 16, right: 16, zIndex: 2 }}
         component={Link}
-        href="#home"
       >
         {children}
       </Box>

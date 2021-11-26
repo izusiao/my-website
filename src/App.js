@@ -80,28 +80,28 @@ function App() {
 
   const visabilityThreshold = 100;
 
-  const getOffset = (element) => {
-    const rect = element && element.getBoundingClientRect();
-    return rect.top;
-  };
+  // const getOffset = (element) => {
+  //   const rect = element && element.getBoundingClientRect();
+  //   return rect.top;
+  // };
 
-  const listenToScroll = () => {
-    const footerTopOffset =
-      getOffset(document.querySelector("#footer"));
+  // const listenToScroll = () => {
+  //   const footerTopOffset =
+  //     getOffset(document.querySelector("#footer"));
 
-    if (footerTopOffset < (window.innerHeight + visabilityThreshold)) {
-      showSidebar &&      // to limit setting state only the first time
-        setShowSidebar(false);
-    } else {
-      setShowSidebar(true);
-    }
-  };
+  //   if (footerTopOffset < (window.innerHeight + visabilityThreshold)) {
+  //     showSidebar &&      // to limit setting state only the first time
+  //       setShowSidebar(false);
+  //   } else {
+  //     setShowSidebar(true);
+  //   }
+  // };
 
-  useEffect(() => {
-    window.addEventListener("scroll", listenToScroll);
-    return () =>
-      window.removeEventListener("scroll", listenToScroll);
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", listenToScroll);
+  //   return () =>
+  //     window.removeEventListener("scroll", listenToScroll);
+  // }, []);
 
   return (
     <Router>
