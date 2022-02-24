@@ -5,21 +5,22 @@ import React from 'react'
 import { Route, Routes } from "react-router-dom"
 import About from './About'
 import Blog from './Blog'
-import Galery from './Galery'
+import Gallery from './Gallery'
 import Home from './Home'
 import ScrollTop from './ScrollTop'
 
 
 function Content() {
   return (
-    <Grid item px={1} py={10}>
+    <Grid item>
       <Grid container
         direction="column"
-        alignContent="stretch">
+        alignContent="stretch"
+        mt="60px">
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="galery" element={<Galery />} />
+          <Route path="gallery" element={<Gallery />} />
           <Route path="blog" element={<Blog />} />
         </Routes>
       </Grid>

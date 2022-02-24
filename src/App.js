@@ -1,72 +1,91 @@
-import grey from '@mui/material/colors/grey';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
-import { useEffect, useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import './App.css';
-import Content from './components/Content';
+import grey from "@mui/material/colors/grey";
+import Grid from "@mui/material/Grid";
+import {
+  createTheme,
+  responsiveFontSizes,
+  ThemeProvider,
+} from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
+import { useEffect, useState } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import "./App.css";
+import Content from "./components/Content";
 // import Footer from './components/Footer';
-import Header from './components/Header';
-import Container from '@mui/material/Container'
-import SwitchThemeMode from './components/SwitchThemeMode';
+import Header from "./components/Header";
+import SwitchThemeMode from "./components/SwitchThemeMode";
+import { indigo, pink } from "@mui/material/colors";
 
-const applyCommonTheme = theme => createTheme(theme, {
-  typography: {
-    h4: {
-      color: theme.palette.text.secondary
+const applyCommonTheme = (theme) =>
+  createTheme(theme, {
+    typography: {
+      h4: {
+        color: theme.palette.text.secondary,
+      },
+      h2Big: {
+        color: theme.palette.primary.dark,
+        fontSize: "clamp(2rem, 8vw, 3rem)",
+        fontWeight: 700,
+      },
+      h3Big: {
+        fontWeight: 700,
+      },
+      spanBold: {
+        color: theme.palette.text.secondary,
+        fontWeight: 600,
+      },
+      p: {
+        fontFamily: '"Cormorant", serif',
+      },
     },
-    h2Big: {
-      color: theme.palette.text.secondary,
-      fontSize: 'clamp(2rem, 8vw, 3rem)',
-      fontWeight: 900,
+    components: {
+      MuiTypography: {
+        defaultProps: {
+          fontFamily: '"Open Sans Condensed", sans-serif',
+        },
+      },
     },
-    h3Big: {
-      fontSize: 'clamp(2rem, 8vw, 3rem)',
-      fontWeight: 700,
-    },
-    spanBold: {
-      color: theme.palette.text.secondary,
-      fontWeight: 600
-    },
-  }
-});
+  });
 
 const lightTheme = createTheme({
   palette: {
     primary: {
-      light: '#00958b',
-      main: '#00796d',
-      dark: '#004d40',
+      light: "#B0C3D7",
+      main: "#2B5676",
+      dark: "#222230",
+    },
+    secondary: {
+      light: "#f1ebe3",
+      main: "#E7B1B7",
+      dark: "#E07E87",
     },
     text: {
       primary: grey[700],
-      secondary: '#000'
-    }
+      secondary: grey[50],
+    },
   },
 });
 
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
     primary: {
-      light: '#a9dfdd',
-      main: '#6ccbc7',
-      dark: '#00a69e',
+      light: "#a9dfdd",
+      main: "#6ccbc7",
+      dark: "#00a69e",
     },
     text: {
       primary: grey[400],
-      secondary: '#fff'
-    }
+      secondary: "#fff",
+    },
   },
 });
 
 const useStyles = makeStyles({
   root: {
-    minHeight: '100vh',
-  }
+    minHeight: "100vh",
+    backgroundColor: grey[50],
+  },
 });
 
 function App() {
@@ -76,7 +95,7 @@ function App() {
   let theme = themeMode ? darkTheme : lightTheme;
   theme = applyCommonTheme(theme);
   theme = responsiveFontSizes(theme);
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const visabilityThreshold = 100;
 
@@ -106,22 +125,18 @@ function App() {
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <Paper className={classes.root} elevation={0} square={true}>
-          <Grid container direction="column" alignItems="flex-end">
-            <Header setThemeMode={setThemeMode} themeMode={themeMode} />
-            <Container maxWidth="xl">
-              <Grid container>
-                <Grid item xs={12} sm={10}>
-                  <Content />
-                </Grid>
-              </Grid>
-            </Container>
-            {/* <Grid id="footer" container>
+        <Grid container direction="column" alignItems="flex-end">
+          <Header setThemeMode={setThemeMode} themeMode={themeMode} />
+          <Grid container>
+            <Grid item xs={12}>
+              <Content />
+            </Grid>
+          </Grid>
+          {/* <Grid id="footer" container>
             <Footer />
           </Grid> */}
-            <SwitchThemeMode themeMode={themeMode} setThemeMode={setThemeMode} />
-          </Grid>
-        </Paper>
+          <SwitchThemeMode themeMode={themeMode} setThemeMode={setThemeMode} />
+        </Grid>
       </ThemeProvider>
     </Router>
   );
