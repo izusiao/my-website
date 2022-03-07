@@ -20,7 +20,7 @@ function Content() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="gallery" element={<Gallery />} />
+          <Route path="portfolio" element={<Gallery />} />
           <Route path="blog" element={<Blog />} />
         </Routes>
       </Grid>

@@ -90,9 +90,9 @@ const useStyles = makeStyles({
 
 function App() {
   const classes = useStyles();
-  const [themeMode, setThemeMode] = useState(true);
+  // const [themeMode, setThemeMode] = useState(true);
   const [showSidebar, setShowSidebar] = useState(true);
-  let theme = themeMode ? darkTheme : lightTheme;
+  let theme = lightTheme;
   theme = applyCommonTheme(theme);
   theme = responsiveFontSizes(theme);
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -126,7 +126,8 @@ function App() {
     <Router>
       <ThemeProvider theme={theme}>
         <Grid container direction="column" alignItems="flex-end">
-          <Header setThemeMode={setThemeMode} themeMode={themeMode} />
+          {/* <Header setThemeMode={setThemeMode} themeMode={themeMode} /> */}
+          <Header />
           <Grid container>
             <Grid item xs={12}>
               <Content />
@@ -135,7 +136,7 @@ function App() {
           {/* <Grid id="footer" container>
             <Footer />
           </Grid> */}
-          <SwitchThemeMode themeMode={themeMode} setThemeMode={setThemeMode} />
+          {/* <SwitchThemeMode themeMode={themeMode} setThemeMode={setThemeMode} /> */}
         </Grid>
       </ThemeProvider>
     </Router>

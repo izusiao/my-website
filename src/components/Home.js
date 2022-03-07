@@ -5,6 +5,7 @@ import useTheme from "@mui/styles/useTheme";
 import Title from "./Title";
 import Subtitle from "./Subtitle";
 import Navigation from "./Navigation";
+import Intro from "./Intro";
 
 function Home() {
   const theme = useTheme();
@@ -12,6 +13,7 @@ function Home() {
     <Grid container sx={{ backgroundColor: theme.palette.text.secondary }}>
       <Title />
       <Subtitle />
+      <Intro />
       <Navigation />
     </Grid>
   );
