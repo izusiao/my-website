@@ -19,8 +19,6 @@ const itemData = [
 ];
 
 function Gallery() {
-  const theme = useTheme();
-  console.log("theme", theme);
   return (
     <Grid container justifyContent="center" spacing={3} pl={30} pr={30}>
       {itemData.map((item) => (

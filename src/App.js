@@ -9,19 +9,15 @@ import makeStyles from "@mui/styles/makeStyles";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import SwitchThemeMode from "./components/SwitchThemeMode";
 import "./App.css";
 import Content from "./components/Content";
-// import Footer from './components/Footer';
 import Header from "./components/Header";
-import SwitchThemeMode from "./components/SwitchThemeMode";
-import { indigo, pink } from "@mui/material/colors";
+import Footer from "./components/Footer";
 
 const applyCommonTheme = (theme) =>
   createTheme(theme, {
     typography: {
-      h4: {
-        color: theme.palette.text.secondary,
-      },
       h2Big: {
         color: theme.palette.primary.dark,
         fontSize: "clamp(2rem, 8vw, 3rem)",
@@ -41,7 +37,8 @@ const applyCommonTheme = (theme) =>
     components: {
       MuiTypography: {
         defaultProps: {
-          fontFamily: '"Open Sans Condensed", sans-serif',
+          // fontFamily: '"Open Sans Condensed", sans-serif',
+          fontFamily: '"Cormorant", serif',
         },
       },
     },
@@ -58,6 +55,10 @@ const lightTheme = createTheme({
       light: "#f1ebe3",
       main: "#E7B1B7",
       dark: "#E07E87",
+    },
+    background: {
+      light: grey[100],
+      main: '#efefef'
     },
     text: {
       primary: grey[700],
@@ -133,9 +134,9 @@ function App() {
               <Content />
             </Grid>
           </Grid>
-          {/* <Grid id="footer" container>
+          <Grid id="footer" container>
             <Footer />
-          </Grid> */}
+          </Grid>
           {/* <SwitchThemeMode themeMode={themeMode} setThemeMode={setThemeMode} /> */}
         </Grid>
       </ThemeProvider>

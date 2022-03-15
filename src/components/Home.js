@@ -10,7 +10,7 @@ import Intro from "./Intro";
 function Home() {
   const theme = useTheme();
   return (
-    <Grid container sx={{ backgroundColor: theme.palette.text.secondary }}>
+    <Grid container sx={{ backgroundColor: theme.palette.background.light }}>
       <Title />
       <Subtitle />
       <Intro />

@@ -8,25 +8,33 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Link from "@mui/material/Link";
+import useTheme from "@mui/styles/useTheme";
 import Image1 from "../img/cards/flowers1_transparent.png";
 import Image2 from "../img/cards/flowers2_transparent.png";
 import Image3 from "../img/cards/flowers3_transparent.png";
 
 const items = [
-  { img: Image1, title: "portfolio" },
-  { img: Image2, title: "blog" },
-  { img: Image3, title: "about" },
+  { img: Image1, href: "portfolio", title: "Portfolio" },
+  { img: Image2, href: "journal", title: "Journal" },
+  { img: Image3, href: "about", title: "About me" },
 ];
 
 function Navigation() {
-  // const theme = useTheme();
+  const theme = useTheme();
   return (
-    <Container maxWidth="xl" sx={{ pt: 12, pb: 12 }}>
-      <Grid container spacing={3} justifyContent="center">
-        {items.map((it) => (
-          <Grid item sm={12} lg={4} key={it.title}>
-            <Link href={`/${it.title}`} underline="none">
-              {/* <Box
+    <Grid container bgcolor={theme.palette.background.main}>
+      <Container maxWidth="xl" sx={{ pt: 12, pb: 12 }}>
+        <Typography
+          variant="h2"
+          sx={{ color: "text.primary", textAlign: "center", pb: 6 }}
+        >
+          Know me better
+        </Typography>
+        <Grid container spacing={3} justifyContent="center">
+          {items.map(({ img, href, title }) => (
+            <Grid item sm={12} lg={4} key={title}>
+              <Link href={`/${href}`} underline="none">
+                {/* <Box
                 sx={(theme) => ({
                   border: `3px solid ${theme.palette.primary.main}`,
                   borderRadius: 1,
@@ -56,37 +64,38 @@ function Navigation() {
                 </Typography>
               </Box> */}
 
-              <Card
-                variant="outlined"
-                sx={(theme) => ({
-                  backgroundColor: "transparent",
-                  maxWidth: "370px",
-                  m: "auto",
-                  p: 3,
-                  color: theme.palette.primary.main,
-                  "&:hover": {
-                    bgcolor: theme.palette.primary.main,
-                    color: "text.secondary",
-                  },
-                })}
-              >
-                <CardMedia
-                  component="img"
-                  height="350px"
-                  image={it.img}
-                  alt={it.title}
-                />
-                <CardContent sx={{ textAlign: "center" }}>
-                  <Typography variant="h2Big" color="inherit">
-                    {it.title}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Link>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+                <Card
+                  variant="outlined"
+                  sx={(theme) => ({
+                    backgroundColor: "transparent",
+                    maxWidth: "370px",
+                    m: "auto",
+                    p: 3,
+                    color: theme.palette.primary.main,
+                    "&:hover": {
+                      bgcolor: theme.palette.primary.main,
+                      color: "text.secondary",
+                    },
+                  })}
+                >
+                  <CardMedia
+                    component="img"
+                    height="200px"
+                    image={img}
+                    alt={title}
+                  />
+                  <CardContent sx={{ textAlign: "center" }}>
+                    <Typography variant="h3" color="inherit">
+                      {title}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Link>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Grid>
   );
 }
 

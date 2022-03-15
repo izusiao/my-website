@@ -10,12 +10,13 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Link from "@mui/material/Link";
 import useTheme from "@mui/styles/useTheme";
+import grey from "@mui/material/colors/grey";
 import Image1 from "../img/doodle1.png";
 
 const styles = {
   image: {
     backgroundImage: `url(${Image1})`,
-    backgroundSize: "50% 100%",
+    backgroundSize: "60% 100%",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "right",
   },
@@ -29,6 +30,7 @@ function Intro() {
         ...styles.image,
         // bgcolor: "text.secondary",
         color: "text.primary",
+        mt: 12,
       }}
     >
       <Container
@@ -40,17 +42,18 @@ function Intro() {
           textAlign: "center",
         }}
       >
-        <Grid
-          container
-          sm={12}
-          md={5}
-          p={3}
-          pl={{ md: 3 }}
-          sx={{
-            alignContent: "center",
-          }}
-        >
-          <Typography variant="h3" m={{ sm: 6, md: 0 }}>
+        <Grid container>
+          <Grid
+            item
+            xs={12}
+            md={5}
+            p={3}
+            pl={{ md: 3 }}
+            sx={{
+              alignContent: "center",
+            }}
+          >
+            {/* <Typography variant="h3" m={{ sm: 6, md: 0 }}>
             Hello there! My name is <b>Izabela Ograbek</b>. I am an artist and
             web developer. I'd like to share my art journey, experience, and
             knowledge. You're welcome to join it!
@@ -58,9 +61,42 @@ function Intro() {
           <Typography variant="h3" fontStyle="italic" mt={4}>
             Sharing unfinished work is almost as important as sharing a
             masterpiece!
-          </Typography>
+          </Typography> */}
+          </Grid>
+          <Grid item xs={12} md={7} alignSelf="center">
+            <Box
+              sx={{
+                border: `3px solid ${grey[500]}`,
+                borderBottom: "none",
+                borderLeft: "none",
+                p: 2,
+              }}
+            >
+              <Typography variant="h4" fontStyle="italic">
+                Be so <b>GOOD</b> they <br /> can't ignore <b>YOU.</b>
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                borderBottom: `1px dotted ${grey[500]}`,
+                mt: 6,
+              }}
+            ></Box>
+            <Box
+              sx={{
+                border: `3px solid ${grey[500]}`,
+                borderTop: "none",
+                borderRight: "none",
+                p: 2,
+                mt: 6,
+              }}
+            >
+              <Typography variant="h4" fontStyle="italic">
+                <b>Success</b> is a <b>journey</b> <br /> not a destination.
+              </Typography>
+            </Box>
+          </Grid>
         </Grid>
-        <Grid item sm={12} md={7} alignSelf="center"></Grid>
       </Container>
     </Grid>
   );

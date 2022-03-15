@@ -28,10 +28,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const menuItems = [
-  { link: "", name: "home" },
-  { link: "portfolio", name: "portfolio" },
-  { link: "blog", name: "blog" },
-  { link: "about", name: "about" },
+  { link: "", name: "Home" },
+  { link: "portfolio", name: "Portfolio" },
+  { link: "journal", name: "Journal" },
+  { link: "about", name: "About me" },
 ];
 
 function MobileNavbar() {
@@ -46,16 +46,32 @@ function MobileNavbar() {
     setAnchor(null);
   };
 
+  const theme = useTheme();
+
   return (
     <Grid container justifyContent="flex-end">
-      <IconButton aria-label="menu" onClick={handleMenu} color="primary">
+      <IconButton
+        aria-label="menu"
+        onClick={handleMenu}
+        // color={theme.palette.primary.main}
+      >
         <MenuIcon />
       </IconButton>
       <Menu id="menu" anchorEl={anchor} open={open} onClose={handleMenuClose}>
         {menuItems.map(({ link, name }) => (
-          <Link to={{ pathname: `/${link}` }} onClick={() => setAnchor(null)}>
-            <MenuItem sx={{ fontSize: 16, fontWeight: 600 }}>{name}</MenuItem>
-          </Link>
+          <MenuItem
+            component="a"
+            href={`/${link}`}
+            sx={(theme) => ({
+              fontSize: 16,
+              fontWeight: 600,
+              color: theme ? theme.palette.primary.main : "primary",
+            })}
+            onClick={() => setAnchor(null)}
+            key={name}
+          >
+            {name}
+          </MenuItem>
         ))}
       </Menu>
     </Grid>
@@ -65,9 +81,9 @@ function MobileNavbar() {
 function DesktopNavbar() {
   const classes = useStyles();
   return (
-    <Grid container justifyContent="flex-end">
+    <Grid container justifyContent="flex-end" spacing={6}>
       {menuItems.map(({ link, name }) => (
-        <Grid item pl={2}>
+        <Grid item pl={2} key={name}>
           <Link
             to={{
               pathname: `/${link}`,
@@ -85,7 +101,7 @@ function DesktopNavbar() {
 function Header() {
   const theme = useTheme();
   const trigger = useScrollTrigger();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Grid item>

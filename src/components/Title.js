@@ -28,19 +28,31 @@ function Title() {
   return (
     <Grid
       container
-      sx={{ ...styles.grid, backgroundColor: theme.palette.secondary.light }}
+      sx={{ ...styles.grid }}
     >
       <Container maxWidth="xl">
         <Grid container sx={{ justifyContent: "center" }}>
-          <Grid sx={styles.image} item sm={12} lg={6}></Grid>
+          <Grid item sx={styles.image} sm={12} lg={6}></Grid>
           <Grid
-            container
+            item
             sm={12}
             lg={6}
             alignItems="center"
             justifyContent="center"
+            color="text.primary"
           >
-            <Box elevation={0}>
+            <Typography
+              variant="h1"
+              textAlign="center"
+              sx={{ letterSpacing: 6, m: 1 }}
+            >
+              art.
+              <br />
+              design.
+              <br />
+              web.
+            </Typography>
+            {/* <Box elevation={0}>
               <Typography
                 component="div"
                 color="text.primary"
@@ -52,7 +64,7 @@ function Title() {
                   by <b>mamaminia</b>
                 </Box>
               </Typography>
-            </Box>
+            </Box> */}
           </Grid>
         </Grid>
       </Container>
