@@ -58,7 +58,7 @@ const lightTheme = createTheme({
     },
     background: {
       light: grey[100],
-      main: '#efefef'
+      main: "#efefef",
     },
     text: {
       primary: grey[700],
@@ -126,10 +126,15 @@ function App() {
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <Grid container direction="column" alignItems="flex-end">
+        <Grid
+          container
+          direction="column"
+          alignItems="flex-end"
+          minHeight="100vh"
+        >
           {/* <Header setThemeMode={setThemeMode} themeMode={themeMode} /> */}
           <Header />
-          <Grid container>
+          <Grid container flex={1}>
             <Grid item xs={12}>
               <Content />
             </Grid>
