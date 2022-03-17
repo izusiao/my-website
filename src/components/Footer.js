@@ -78,8 +78,12 @@ function FooterIcon({ href, children }) {
     </Link>
   );
 }
-function FooterTitle({ href, children }) {
-  return <Box sx={{ mb: 3, pb: 1, borderBottom: 1 }}>{children}</Box>;
+function FooterTitle({ children }) {
+  return (
+    <Box sx={{ mb: 3, pb: 1, fontWeight: 700, fontSize: 20 }} borderBottom={1}>
+      {children}
+    </Box>
+  );
 }
 
 function Footer() {
@@ -122,7 +126,7 @@ function Footer() {
                 </span>
                 <Box>
                   <Link
-                    href="mailto:iza.ograbek@gmail.com"
+                    href="mailto:contact@mamaminia.art"
                     sx={{
                       display: "flex",
                       justifyContent: "center",
@@ -132,7 +136,7 @@ function Footer() {
                     className={classes.menuLink}
                   >
                     <EmailIcon sx={{ pr: 1 }} />
-                    iza.ograbek@gmail.com
+                    contact@mamaminia.art
                   </Link>
                 </Box>
               </Grid>

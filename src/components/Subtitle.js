@@ -67,7 +67,7 @@ function Subtitle() {
           textAlign: "center",
         }}
       >
-        <Typography variant="h1">Welcome to my world of</Typography>
+        <Typography variant="h2">Welcome to my world of</Typography>
         <Typography variant="h1">
           <b>art and design</b>
         </Typography>

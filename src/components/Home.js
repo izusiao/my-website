@@ -6,6 +6,7 @@ import Title from "./Title";
 import Subtitle from "./Subtitle";
 import Navigation from "./Navigation";
 import Intro from "./Intro";
+import Highlights from "./Highlights";
 
 function Home() {
   const theme = useTheme();
@@ -15,6 +16,7 @@ function Home() {
       <Subtitle />
       <Intro />
       <Navigation />
+      <Highlights />
     </Grid>
   );
 }

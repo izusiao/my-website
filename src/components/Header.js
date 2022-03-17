@@ -80,6 +80,7 @@ function MobileNavbar() {
 
 function DesktopNavbar() {
   const classes = useStyles();
+  const activeLink = true;
   return (
     <Grid container justifyContent="flex-end" spacing={6}>
       {menuItems.map(({ link, name }) => (

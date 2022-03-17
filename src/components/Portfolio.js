@@ -5,7 +5,7 @@ import Img1 from "../img/panda_blue_violet.png";
 import Img2 from "../img/tree.png";
 import Img3 from "../img/mamaminia_logo.png";
 import Img4 from "../img/twoHeartsOneSoul.png";
-import useTheme from "@mui/styles/useTheme";
+import Wrapper from "./Wrapper";
 
 const itemData = [
   { img: Img1, title: "1" },
@@ -18,16 +18,23 @@ const itemData = [
   { img: Img4, title: "8" },
 ];
 
-function Gallery() {
+function Portfolio() {
   return (
-    <Grid container justifyContent="center" spacing={3} pl={30} pr={30}>
-      {itemData.map((item) => (
-        <Grid item md={6} lg={4} alignSelf="center">
-          <Box component="img" src={item.img} maxHeight={500} maxWidth="100%" />
-        </Grid>
-      ))}
-    </Grid>
+    <Wrapper title="Portfolio">
+      <Grid container justifyContent="center" spacing={3}>
+        {itemData.map((item) => (
+          <Grid item md={6} lg={4} alignSelf="center">
+            <Box
+              component="img"
+              src={item.img}
+              maxHeight={500}
+              maxWidth="100%"
+            />
+          </Grid>
+        ))}
+      </Grid>
+    </Wrapper>
   );
 }
 
-export default Gallery;
+export default Portfolio;

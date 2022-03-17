@@ -11,16 +11,28 @@ import CardContent from "@mui/material/CardContent";
 import Link from "@mui/material/Link";
 import useTheme from "@mui/styles/useTheme";
 import grey from "@mui/material/colors/grey";
-import Image1 from "../img/doodle1.png";
+import Mosaic from "../img/mosaic_light.png";
 
 const styles = {
   image: {
-    backgroundImage: `url(${Image1})`,
-    backgroundSize: "60% 100%",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "right",
+    // backgroundImage: `url(${Image1})`,
+    // backgroundSize: "5%",
+    // backgroundRepeat: "repeat",
+    // background: `url(${Mosaic}) repeat center/5%, linear-gradient(90deg, rgba(176,219,255,1) 0%, rgba(99,73,201,1) 100%)`,
+    background: `url(${Mosaic}) repeat center/5%, linear-gradient(90deg, rgba(226,121,228,1) 0%, rgba(125,179,224,1) 100%)`,
+    // backgroundPosition: "right",
   },
 };
+
+function Quote({ children }) {
+  return (
+    <Grid item>
+      <Typography variant="h4" fontStyle="italic" p={{ xs: 3 }} children>
+        "{children}"
+      </Typography>
+    </Grid>
+  );
+}
 
 function Intro() {
   return (
@@ -29,8 +41,7 @@ function Intro() {
       sx={{
         ...styles.image,
         // bgcolor: "text.secondary",
-        color: "text.primary",
-        mt: 12,
+        color: "text.secondary",
       }}
     >
       <Container
@@ -42,60 +53,18 @@ function Intro() {
           textAlign: "center",
         }}
       >
-        <Grid container>
-          <Grid
-            item
-            xs={12}
-            md={5}
-            p={3}
-            pl={{ md: 3 }}
-            sx={{
-              alignContent: "center",
-            }}
-          >
-            {/* <Typography variant="h3" m={{ sm: 6, md: 0 }}>
-            Hello there! My name is <b>Izabela Ograbek</b>. I am an artist and
-            web developer. I'd like to share my art journey, experience, and
-            knowledge. You're welcome to join it!
-          </Typography>
-          <Typography variant="h3" fontStyle="italic" mt={4}>
-            Sharing unfinished work is almost as important as sharing a
-            masterpiece!
-          </Typography> */}
-          </Grid>
-          <Grid item xs={12} md={7} alignSelf="center">
-            <Box
-              sx={{
-                border: `3px solid ${grey[500]}`,
-                borderBottom: "none",
-                borderLeft: "none",
-                p: 2,
-              }}
-            >
-              <Typography variant="h4" fontStyle="italic">
-                Be so <b>GOOD</b> they <br /> can't ignore <b>YOU.</b>
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                borderBottom: `1px dotted ${grey[500]}`,
-                mt: 6,
-              }}
-            ></Box>
-            <Box
-              sx={{
-                border: `3px solid ${grey[500]}`,
-                borderTop: "none",
-                borderRight: "none",
-                p: 2,
-                mt: 6,
-              }}
-            >
-              <Typography variant="h4" fontStyle="italic">
-                <b>Success</b> is a <b>journey</b> <br /> not a destination.
-              </Typography>
-            </Box>
-          </Grid>
+        <Grid container spacing={{ md: 12 }} justifyContent="center">
+          <Quote>
+            Be so <b>GOOD</b> they <br /> can't ignore <b>YOU.</b>
+          </Quote>
+          <Quote>
+            <b>Success</b> is a <b>journey</b> <br /> not a destination.
+          </Quote>
+          <Quote>
+            The key to success
+            <br />
+            is <b>consistency</b>.
+          </Quote>
         </Grid>
       </Container>
     </Grid>
