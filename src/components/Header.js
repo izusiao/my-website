@@ -7,23 +7,30 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Slide from "@mui/material/Slide";
 import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import makeStyles from "@mui/styles/makeStyles";
 import useTheme from "@mui/styles/useTheme";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import { ReactComponent as Logo } from "./logo/text.svg";
 
 const useStyles = makeStyles((theme) => ({
   menuLink: {
     color: theme.palette.primary.main,
     fontSize: 24,
-    fontWeight: 600,
+    fontWeight: 700,
     textDecoration: "none",
+    fontFamily: '"Cormorant", serif',
     "&:hover": {
       color: theme.palette.primary.light,
     },
+  },
+  mobileLink: {
+    color: theme.palette.primary.main,
+    textDecoration: "none",
+    fontFamily: '"Cormorant", serif',
   },
 }));
 
@@ -32,6 +39,7 @@ const menuItems = [
   { link: "portfolio", name: "Portfolio" },
   { link: "journal", name: "Journal" },
   { link: "about", name: "About me" },
+  { link: "https://www.etsy.com/shop/mamaminiaArt", name: "Shop" },
 ];
 
 function MobileNavbar() {
@@ -46,8 +54,7 @@ function MobileNavbar() {
     setAnchor(null);
   };
 
-  const theme = useTheme();
-
+  const classes = useStyles();
   return (
     <Grid container justifyContent="flex-end">
       <IconButton
@@ -60,17 +67,34 @@ function MobileNavbar() {
       <Menu id="menu" anchorEl={anchor} open={open} onClose={handleMenuClose}>
         {menuItems.map(({ link, name }) => (
           <MenuItem
-            component="a"
-            href={`/${link}`}
+            component="div"
             sx={(theme) => ({
               fontSize: 16,
               fontWeight: 600,
-              color: theme ? theme.palette.primary.main : "primary",
             })}
             onClick={() => setAnchor(null)}
             key={name}
           >
-            {name}
+            {name !== "Shop" ? (
+              <RouterLink
+                to={{
+                  pathname: `/${link}`,
+                }}
+                className={classes.mobileLink}
+              >
+                {name}
+              </RouterLink>
+            ) : (
+              <Link
+                href={link}
+                className={classes.mobileLink}
+                sx={{ textDecoration: "none" }}
+                target="_blank"
+                rel="noopener"
+              >
+                {name}
+              </Link>
+            )}
           </MenuItem>
         ))}
       </Menu>
@@ -80,19 +104,30 @@ function MobileNavbar() {
 
 function DesktopNavbar() {
   const classes = useStyles();
-  const activeLink = true;
   return (
     <Grid container justifyContent="flex-end" spacing={6}>
       {menuItems.map(({ link, name }) => (
         <Grid item pl={2} key={name}>
-          <Link
-            to={{
-              pathname: `/${link}`,
-            }}
-            className={classes.menuLink}
-          >
-            {name}
-          </Link>
+          {name !== "Shop" ? (
+            <RouterLink
+              to={{
+                pathname: `/${link}`,
+              }}
+              className={classes.menuLink}
+            >
+              {name}
+            </RouterLink>
+          ) : (
+            <Link
+              href={link}
+              className={classes.menuLink}
+              sx={{ textDecoration: "none" }}
+              target="_blank"
+              rel="noopener"
+            >
+              {name}
+            </Link>
+          )}
         </Grid>
       ))}
     </Grid>
@@ -116,14 +151,14 @@ function Header() {
               pt={1}
             >
               <Grid item xs={1} textAlign="center">
-                <Link to={{ pathname: "/" }}>
+                <RouterLink to={{ pathname: "/" }}>
                   <Logo
                     height={48}
                     width={120}
                     fill={theme.palette.primary.main}
                     stroke={theme.palette.primary.main}
                   />
-                </Link>
+                </RouterLink>
               </Grid>
               <Grid item xs={11} sm={10}>
                 <Typography variant="h6">

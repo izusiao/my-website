@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
@@ -7,7 +8,6 @@ import Paper from "@mui/material/Paper";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-import Link from "@mui/material/Link";
 import useTheme from "@mui/styles/useTheme";
 import Image1 from "../img/nav_portfolio.png";
 import Image2 from "../img/nav_journal.png";
@@ -31,12 +31,15 @@ function Navigation() {
           variant="h2"
           sx={{ color: "text.primary", textAlign: "center", pb: 6 }}
         >
-          Know me better
+          Get to know me better
         </Typography>
         <Grid container spacing={3} justifyContent="center">
           {items.map(({ img, href, title }) => (
             <Grid item sm={12} lg={4} key={title}>
-              <Link href={`/${href}`} underline="none">
+              <Link
+                to={{ pathname: `/${href}` }}
+                style={{ textDecoration: "none" }}
+              >
                 <Card
                   variant="outlined"
                   square

@@ -10,7 +10,6 @@ function JournalItem({ img, title, desc, href }) {
   return (
     <Card variant="outlined" square>
       <CardMedia component="img" height={300} image={img} alt={title} />
-
       <CardContent sx={{ flex: "1 0 auto" }}>
         <Typography component="div" variant="h5">
           {title}
@@ -20,8 +19,8 @@ function JournalItem({ img, title, desc, href }) {
         </Typography>
       </CardContent>
       <CardActions sx={{ justifyContent: "flex-end" }}>
-        <Button href={href} size="small">
-          Read more
+        <Button href={href} target="_blank" rel="noopener" size="small">
+          Learn more
         </Button>
       </CardActions>
     </Card>

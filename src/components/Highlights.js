@@ -2,30 +2,29 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-
-import Logo from "../img/mamaminia_logo.png";
-import Mosaic from "../img/mosaic_light.png";
+import Etsy from "../img/etsy_highlight.png";
+import Youtube from "../img/yt_04.png";
+import Panda from "../img/panda.png";
 import JournalItem from "./JournalItem";
 
 const Items = [
   {
-    title: "My website is deployed!",
-    img: Logo,
-    desc: "Hello to my new website!",
-    href: "/journal",
+    title: "My etsy shop - mamaminiaArt!",
+    img: Etsy,
+    desc: "Check out my etsy shop!",
+    href: "https://www.etsy.com/shop/mamaminiaArt",
   },
   {
-    title: "My website is deployed!",
-    img: Logo,
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    href: "/journal",
+    title: "New video on YouTube!",
+    img: Youtube,
+    desc: "A new video is here. Next episode of Krita tutorial - Brushes.",
+    href: "https://youtu.be/6y01AOgnHYQ",
   },
   {
-    title: "My website is deployed!",
-    img: Logo,
-    desc: "Hello to my new website!",
-    href: "/journal",
+    title: "My first timelapse painting on YouTube!",
+    img: Panda,
+    desc: "Paint, record & show! This is how my process looks like :)",
+    href: "https://youtu.be/f3Wn-Sm8of0",
   },
 ];
 
@@ -47,7 +46,7 @@ function Highlights() {
         </Typography>
         <Grid container spacing={6} justifyContent="center">
           {Items.map((journalItem) => (
-            <Grid item xs={12} md={6} lg={4}>
+            <Grid item xs={12} md={6} lg={4} key={journalItem.title}>
               <JournalItem {...journalItem} />
             </Grid>
           ))}

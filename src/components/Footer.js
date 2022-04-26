@@ -1,13 +1,16 @@
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import Container from "@mui/material/Container";
-import Link from "@mui/material/Link";
 import grey from "@mui/material/colors/grey";
 import makeStyles from "@mui/styles/makeStyles";
 import Me from "../img/me.png";
@@ -15,8 +18,11 @@ import Me from "../img/me.png";
 const useStyles = makeStyles((theme) => ({
   menuLink: {
     fontSize: 20,
-    fontWeight: 600,
+    fontWeight: 700,
     cursor: "pointer",
+    textDecoration: "none",
+    fontFamily: '"Cormorant", serif',
+    color: theme.palette.primary.main,
     "&:hover": {
       color: theme.palette.primary.light,
     },
@@ -34,6 +40,14 @@ const social = [
   {
     icon: <YouTubeIcon />,
     href: "https://www.youtube.com/channel/UCGc2uA6FV1LINPtEfZFm02g",
+  },
+  {
+    icon: <FacebookIcon />,
+    href: "https://www.facebook.com/mamaminia",
+  },
+  {
+    icon: <LibraryMusicIcon />,
+    href: "https://www.tiktok.com/@mamaminia.art",
   },
   {
     icon: <PinterestIcon />,
@@ -61,6 +75,10 @@ const navItems = [
   {
     title: "About me",
     path: "about",
+  },
+  {
+    title: "Shop",
+    path: "https://www.etsy.com/shop/mamaminiaArt",
   },
 ];
 
@@ -105,13 +123,24 @@ function Footer() {
             <FooterTitle>Navigation</FooterTitle>
             {navItems.map(({ path, title }) => (
               <Box pt={1} pb={1} key={title}>
-                <Link
-                  href={`/${path}`}
-                  className={classes.menuLink}
-                  underline="none"
-                >
-                  {title}
-                </Link>
+                {title !== "Shop" ? (
+                  <RouterLink
+                    to={{ pathname: `/${path}` }}
+                    className={classes.menuLink}
+                  >
+                    {title}
+                  </RouterLink>
+                ) : (
+                  <Link
+                    className={classes.menuLink}
+                    sx={{ textDecoration: "none" }}
+                    target="_blank"
+                    rel="noopener"
+                    href={path}
+                  >
+                    {title}
+                  </Link>
+                )}
               </Box>
             ))}
           </Grid>
@@ -155,6 +184,18 @@ function Footer() {
             </Grid>
           </Grid>
         </Grid>
+        <Box>
+          <RouterLink to={{ pathname: "/terms" }} className={classes.menuLink}>
+            Terms and conditions
+          </RouterLink>
+          <RouterLink
+            to={{ pathname: "/impressum" }}
+            className={classes.menuLink}
+            style={{ marginLeft: "2rem" }}
+          >
+            Impressum
+          </RouterLink>
+        </Box>
         <Box sx={{ pt: 2, pb: 2 }}>
           {social.map(({ href, icon }) => (
             <FooterIcon href={href} key={href}>

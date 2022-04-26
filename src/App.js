@@ -7,13 +7,14 @@ import {
 } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import SwitchThemeMode from "./components/SwitchThemeMode";
+// import SwitchThemeMode from "./components/SwitchThemeMode";
 import "./App.css";
 import Content from "./components/Content";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import RoutingScrollToTop from "./components/RoutingScrollToTop";
 
 const applyCommonTheme = (theme) =>
   createTheme(theme, {
@@ -125,26 +126,28 @@ function App() {
 
   return (
     <Router>
-      <ThemeProvider theme={theme}>
-        <Grid
-          container
-          direction="column"
-          alignItems="flex-end"
-          minHeight="100vh"
-        >
-          {/* <Header setThemeMode={setThemeMode} themeMode={themeMode} /> */}
-          <Header />
-          <Grid container flex={1}>
-            <Grid item xs={12}>
-              <Content />
+      <RoutingScrollToTop>
+        <ThemeProvider theme={theme}>
+          <Grid
+            container
+            direction="column"
+            alignItems="flex-end"
+            minHeight="100vh"
+          >
+            {/* <Header setThemeMode={setThemeMode} themeMode={themeMode} /> */}
+            <Header />
+            <Grid container flex={1}>
+              <Grid item xs={12}>
+                <Content />
+              </Grid>
             </Grid>
+            <Grid id="footer" container>
+              <Footer />
+            </Grid>
+            {/* <SwitchThemeMode themeMode={themeMode} setThemeMode={setThemeMode} /> */}
           </Grid>
-          <Grid id="footer" container>
-            <Footer />
-          </Grid>
-          {/* <SwitchThemeMode themeMode={themeMode} setThemeMode={setThemeMode} /> */}
-        </Grid>
-      </ThemeProvider>
+        </ThemeProvider>
+      </RoutingScrollToTop>
     </Router>
   );
 }
