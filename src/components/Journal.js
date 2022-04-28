@@ -12,18 +12,6 @@ const Items = [
   //   desc: "Hello to my new website!",
   //   href: "/journal",
   // },
-  // {
-  //   title: "My website is deployed!",
-  //   img: Logo,
-  //   desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  //   href: "/journal",
-  // },
-  // {
-  //   title: "My website is deployed!",
-  //   img: Logo,
-  //   desc: "Hello to my new website!",
-  //   href: "/journal",
-  // },
 ];
 
 function Journal() {

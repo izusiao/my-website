@@ -185,9 +185,19 @@ function Footer() {
           </Grid>
         </Grid>
         <Box>
-          <RouterLink to={{ pathname: "/terms" }} className={classes.menuLink}>
-            Terms and conditions
+          <RouterLink
+            to={{ pathname: "/privacy" }}
+            className={classes.menuLink}
+          >
+            Privacy Policy
           </RouterLink>
+          {/* <RouterLink
+            to={{ pathname: "/terms" }}
+            className={classes.menuLink}
+            style={{ marginLeft: "2rem" }}
+          >
+            Terms and conditions
+          </RouterLink> */}
           <RouterLink
             to={{ pathname: "/impressum" }}
             className={classes.menuLink}

@@ -8,7 +8,9 @@ import Journal from "./Journal";
 import Portfolio from "./Portfolio";
 import Home from "./Home";
 import ScrollTop from "./ScrollTop";
-import Terms from "./Terms";
+import PrivacyPolicy from "./PrivacyPolicy";
+import Impressum from "./Impressum";
+// import Terms from "./Terms";
 // import NotFound from "./NotFound";
 
 function Content() {
@@ -20,7 +22,9 @@ function Content() {
           <Route path="/about" element={<About />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/journal" element={<Journal />} />
-          <Route path="/terms" element={<Terms />} />
+          {/* <Route path="/terms" element={<Terms />} /> */}
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/impressum" element={<Impressum />} />
           {/* <Route path="*" element={<NotFound />} /> */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

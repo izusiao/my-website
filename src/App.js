@@ -6,7 +6,7 @@ import {
   ThemeProvider,
 } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { HashRouter as Router } from "react-router-dom";
 import useMediaQuery from "@mui/material/useMediaQuery";
 // import SwitchThemeMode from "./components/SwitchThemeMode";

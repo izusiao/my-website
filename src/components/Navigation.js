@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
@@ -12,9 +10,6 @@ import useTheme from "@mui/styles/useTheme";
 import Image1 from "../img/nav_portfolio.png";
 import Image2 from "../img/nav_journal.png";
 import Image3 from "../img/nav_about.png";
-// import Image1 from "../img/cards/flowers1_transparent.png";
-// import Image2 from "../img/cards/flowers2_transparent.png";
-// import Image3 from "../img/cards/flowers3_transparent.png";
 
 const items = [
   { img: Image1, href: "portfolio", title: "Portfolio" },
